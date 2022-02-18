@@ -31,7 +31,7 @@ namespace PhoneDirectory.Services.Contact.Controllers
 
 
         [HttpGet("{contactId}", Name = "GetContact")]
-        public ActionResult<ContactDto> GetContact(Guid contactId)
+        public IActionResult GetContact(Guid contactId)
         {
             var contactFromRepo = _contactRepository.GetContact(contactId);
 
@@ -54,6 +54,37 @@ namespace PhoneDirectory.Services.Contact.Controllers
             return CreatedAtRoute("GetContact",
                 new { contactId = contactToReturn.Id },
                contactToReturn);
+        }
+
+        [HttpPut("{contactId}")]
+        public IActionResult UpdateContact(Guid contactId,ContactUpdateDto contactUpdateDto )
+        {
+            var contactFromRepo = _contactRepository.GetContact(contactId);
+            if (contactFromRepo == null)
+            {
+                return NotFound();
+            }
+            _mapper.Map(contactUpdateDto, contactFromRepo);
+
+            _contactRepository.UpdateContact(contactFromRepo);
+            _contactRepository.Save();
+
+            return NoContent();
+        }
+
+        [HttpDelete("{contactId}")]
+        public ActionResult DeleteContact(Guid contactId)
+        {
+            var contactFromRepo = _contactRepository.GetContact(contactId);
+
+            if (contactFromRepo == null)
+            {
+                return NotFound();
+            }
+            _contactRepository.DeleteContact(contactFromRepo);
+            _contactRepository.Save();
+
+            return NoContent();
         }
     }
 }

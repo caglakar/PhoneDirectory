@@ -1,4 +1,5 @@
-﻿using PhoneDirectory.Services.Contact.DbContexts;
+﻿using Microsoft.EntityFrameworkCore;
+using PhoneDirectory.Services.Contact.DbContexts;
 using PhoneDirectory.Services.Contact.Entities;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,19 @@ namespace PhoneDirectory.Services.Contact.Repositories
             }
             _contactDbContext.Contacts.Add(contact);
         }
+         
+       public void DeleteContact(Entities.Contact contact)
+        {
+            if (contact == null)
+            {
+                throw new ArgumentNullException(nameof(contact));
+            }
+
+            _contactDbContext.Contacts.Remove(contact);
+        }
+
+       
+
         public Entities.Contact GetContact(Guid contactId)
         {
             if (contactId == Guid.Empty)
@@ -41,5 +55,10 @@ namespace PhoneDirectory.Services.Contact.Repositories
             return (_contactDbContext.SaveChanges() >= 0);
         }
 
+        public void UpdateContact(Entities.Contact contact)
+        {
+            //var entity = _contactDbContext.Contacts.Attach(contact);
+            //entity.State = EntityState.Modified;
+        }
     }
 }

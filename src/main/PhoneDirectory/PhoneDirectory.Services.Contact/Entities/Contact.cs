@@ -17,7 +17,6 @@ namespace PhoneDirectory.Services.Contact.Entities
         [MaxLength(50)]
         public string LastName { get; set; }
 
-        [MaxLength(50)]
         public string Firm { get; set; }
 
         public ICollection<ContactDetail> ContactDetails { get; set; } = new List<ContactDetail>();

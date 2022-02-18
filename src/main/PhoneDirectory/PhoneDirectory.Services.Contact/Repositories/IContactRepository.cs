@@ -13,6 +13,8 @@ namespace PhoneDirectory.Services.Contact.Repositories
 
         void AddContact(Entities.Contact contact);
 
+        void DeleteContact(Entities.Contact contact);
+        void UpdateContact(Entities.Contact contact);
         bool Save();
 
     }
