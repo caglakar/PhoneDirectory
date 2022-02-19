@@ -19,6 +19,6 @@ namespace PhoneDirectory.Services.Contact.Entities
 
         public string Firm { get; set; }
 
-        public ICollection<ContactDetail> ContactDetails { get; set; } = new List<ContactDetail>();
+        public virtual ICollection<ContactDetail> ContactDetails { get; set; } = new List<ContactDetail>();
     }
 }

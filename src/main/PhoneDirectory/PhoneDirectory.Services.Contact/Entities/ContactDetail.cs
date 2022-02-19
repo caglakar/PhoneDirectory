@@ -13,7 +13,7 @@ namespace PhoneDirectory.Services.Contact.Entities
         public string ContactDetailInfo { get; set; }
 
         [ForeignKey("ContactId")]
-        public Contact Contact { get; set; }
+        public virtual Contact Contact { get; set; }
 
         public Guid ContactId { get; set; }
     }

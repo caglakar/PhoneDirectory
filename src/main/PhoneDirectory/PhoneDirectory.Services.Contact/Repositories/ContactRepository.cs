@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PhoneDirectory.Services.Contact.DbContexts;
+﻿using PhoneDirectory.Services.Contact.DbContexts;
 using PhoneDirectory.Services.Contact.Entities;
 using System;
 using System.Collections.Generic;
@@ -33,9 +32,6 @@ namespace PhoneDirectory.Services.Contact.Repositories
 
             _contactDbContext.Contacts.Remove(contact);
         }
-
-       
-
         public Entities.Contact GetContact(Guid contactId)
         {
             if (contactId == Guid.Empty)
@@ -45,7 +41,6 @@ namespace PhoneDirectory.Services.Contact.Repositories
 
             return _contactDbContext.Contacts.FirstOrDefault(a => a.Id == contactId);
         }
-
         public IEnumerable<Entities.Contact> GetContacts()
         {
             return _contactDbContext.Contacts.ToList<Entities.Contact>();
@@ -59,6 +54,49 @@ namespace PhoneDirectory.Services.Contact.Repositories
         {
             //var entity = _contactDbContext.Contacts.Attach(contact);
             //entity.State = EntityState.Modified;
+        }
+
+        public void AddContactDetail(Guid contactId, ContactDetail contactDetail)
+        {
+            if (contactId == Guid.Empty)
+            {
+                throw new ArgumentNullException(nameof(contactId));
+            }
+
+            if (contactDetail == null)
+            {
+                throw new ArgumentNullException(nameof(contactDetail));
+            }
+
+             contactDetail.ContactId = contactId;
+            _contactDbContext.ContactDetails.Add(contactDetail);
+        } 
+        public bool ContactExists(Guid contactId)
+        {
+            if (contactId == Guid.Empty)
+            {
+                throw new ArgumentNullException(nameof(contactId));
+            }
+
+            return _contactDbContext.Contacts.Any(p => p.Id == contactId);
+        } 
+        public void DeleteContactDetail(ContactDetail contactDetail)
+        {
+            _contactDbContext.ContactDetails.Remove(contactDetail);
+        }
+        public ContactDetail GetContactDetail(Guid contactId, Guid contactDetailId)
+        {
+            if (contactId == Guid.Empty)
+            {
+                throw new ArgumentNullException(nameof(contactId));
+            }
+
+            if (contactDetailId == Guid.Empty)
+            {
+                throw new ArgumentNullException(nameof(contactDetailId));
+            }
+
+            return _contactDbContext.ContactDetails.Where(p => p.ContactId == contactId && p.Id == contactDetailId).FirstOrDefault();
         }
     }
 }

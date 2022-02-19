@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace PhoneDirectory.Services.Contact.Models
 {
-    public class ContactDto
-    {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Firm { get; set; }
+    public class ContactDto:ContactMainListDto
+    {   
+        //TODO: order base and inherited class properties
+        public ICollection<ContactDetailDto> ContactDetails { get; set; } = new List<ContactDetailDto>();
     }
 }

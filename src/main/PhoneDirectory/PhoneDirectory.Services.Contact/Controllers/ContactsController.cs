@@ -23,10 +23,10 @@ namespace PhoneDirectory.Services.Contact.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<ContactDto>> GetContacts()
+        public ActionResult<IEnumerable<ContactsDto>> GetContacts()
         {
             var contactsFromRepo = _contactRepository.GetContacts();
-            return Ok(_mapper.Map<IEnumerable<ContactDto>>(contactsFromRepo));
+            return Ok(_mapper.Map<IEnumerable<ContactsDto>>(contactsFromRepo));
         }
 
 
@@ -39,7 +39,7 @@ namespace PhoneDirectory.Services.Contact.Controllers
             {
                 return NotFound();
             }
-
+         
             return Ok(_mapper.Map<ContactDto>(contactFromRepo));
         }
 
