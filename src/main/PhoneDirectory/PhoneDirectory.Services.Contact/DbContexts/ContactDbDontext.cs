@@ -16,6 +16,12 @@ namespace PhoneDirectory.Services.Contact.DbContexts
 
     public DbSet<Entities.Contact> Contacts { get; set; }
     public DbSet<ContactDetail> ContactDetails { get; set; }
-    
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Entities.Contact>()
+                .Property(p => p.IsActive)
+                .HasDefaultValue(true);
+        }
     }
 }

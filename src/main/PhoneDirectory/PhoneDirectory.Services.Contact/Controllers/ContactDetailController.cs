@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using PhoneDirectory.Services.Contact.Entities;
-using PhoneDirectory.Services.Contact.ModelBinders;
 using PhoneDirectory.Services.Contact.Models;
 using PhoneDirectory.Services.Contact.Repositories;
 using System;

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PhoneDirectory.Services.Contact.DbContexts;
 
 namespace PhoneDirectory.Services.Contact.Migrations
 {
     [DbContext(typeof(ContactDbDontext))]
-    partial class ContactDbDontextModelSnapshot : ModelSnapshot
+    [Migration("20220219230158_concatstatusdefault")]
+    partial class concatstatusdefault
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,9 +27,6 @@ namespace PhoneDirectory.Services.Contact.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Firm")
                         .HasColumnType("nvarchar(max)");
 
@@ -37,9 +36,7 @@ namespace PhoneDirectory.Services.Contact.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<byte>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint")
-                        .HasDefaultValue((byte)1);
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("LastName")
                         .IsRequired()

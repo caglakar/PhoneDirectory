@@ -1,4 +1,5 @@
-﻿using PhoneDirectory.Services.Contact.DbContexts;
+﻿using Microsoft.EntityFrameworkCore;
+using PhoneDirectory.Services.Contact.DbContexts;
 using PhoneDirectory.Services.Contact.Entities;
 using System;
 using System.Collections.Generic;
@@ -52,8 +53,8 @@ namespace PhoneDirectory.Services.Contact.Repositories
 
         public void UpdateContact(Entities.Contact contact)
         {
-            //var entity = _contactDbContext.Contacts.Attach(contact);
-            //entity.State = EntityState.Modified;
+            var entity = _contactDbContext.Contacts.Attach(contact);
+            entity.State = EntityState.Modified;
         }
 
         public void AddContactDetail(Guid contactId, ContactDetail contactDetail)

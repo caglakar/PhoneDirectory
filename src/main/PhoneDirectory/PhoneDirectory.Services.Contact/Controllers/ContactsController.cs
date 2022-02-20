@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using PhoneDirectory.Services.Contact.Models;
 using PhoneDirectory.Services.Contact.Repositories;
@@ -66,7 +67,7 @@ namespace PhoneDirectory.Services.Contact.Controllers
             }
             _mapper.Map(contactUpdateDto, contactFromRepo);
 
-            _contactRepository.UpdateContact(contactFromRepo);
+           // _contactRepository.UpdateContact(contactFromRepo);
             _contactRepository.Save();
 
             return NoContent();
@@ -82,6 +83,24 @@ namespace PhoneDirectory.Services.Contact.Controllers
                 return NotFound();
             }
             _contactRepository.DeleteContact(contactFromRepo);
+            _contactRepository.Save();
+
+            return NoContent();
+        }
+
+
+        //https://softwareengineering.stackexchange.com/questions/347760/is-it-okay-to-use-post-for-rest-api-updates
+        [HttpPost("{contactId}")]
+        public ActionResult RemoveContect(Guid contactId)
+        {
+            var contactFromRepo = _contactRepository.GetContact(contactId);
+            if (contactFromRepo == null)
+            {
+                return NotFound();
+            }
+            contactFromRepo.IsActive = 0;
+
+            _contactRepository.UpdateContact(contactFromRepo);
             _contactRepository.Save();
 
             return NoContent();
