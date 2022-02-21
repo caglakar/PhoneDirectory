@@ -13,6 +13,7 @@ namespace PhoneDirectory.Services.Contact.Profiles
             CreateMap<Models.ContactDetailCreateDto, Entities.ContactDetail>();
 
             CreateMap<Entities.ContactDetail, Models.ContactDetailDto>();
+            CreateMap<Entities.ContactDetail, Models.ContactDetailServiceDto>();
             
         }
 

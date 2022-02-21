@@ -16,6 +16,7 @@ namespace PhoneDirectory.Services.Contact.DbContexts
 
     public DbSet<Entities.Contact> Contacts { get; set; }
     public DbSet<ContactDetail> ContactDetails { get; set; }
+ //   public DbSet<Location> Locations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -44,7 +44,7 @@ namespace PhoneDirectory.Services.Contact.Repositories
         }
         public IEnumerable<Entities.Contact> GetContacts()
         {
-            return _contactDbContext.Contacts.ToList<Entities.Contact>();
+            return _contactDbContext.Contacts.Where(p=>p.IsActive==1).ToList<Entities.Contact>();
         }
         public bool Save()
         {
@@ -98,6 +98,11 @@ namespace PhoneDirectory.Services.Contact.Repositories
             }
 
             return _contactDbContext.ContactDetails.Where(p => p.ContactId == contactId && p.Id == contactDetailId).FirstOrDefault();
+        }
+
+        public IEnumerable<ContactDetail> GetContactDetails()
+        {
+            return _contactDbContext.ContactDetails.ToList<ContactDetail>();
         }
     }
 }

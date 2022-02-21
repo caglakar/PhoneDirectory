@@ -17,6 +17,7 @@ namespace PhoneDirectory.Services.Contact.Repositories
         void AddContactDetail(Guid contactId, ContactDetail contactDetail);
         void DeleteContactDetail(ContactDetail contactDetail);
         bool ContactExists(Guid contactId);
+        IEnumerable<ContactDetail> GetContactDetails();
         bool Save();
 
     }

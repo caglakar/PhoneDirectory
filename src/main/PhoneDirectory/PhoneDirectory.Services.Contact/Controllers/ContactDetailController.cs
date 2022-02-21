@@ -24,6 +24,7 @@ namespace PhoneDirectory.Services.Contact.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
+
         [HttpGet("{contactDetailId}", Name = "GetContactDetail")]
         public IActionResult GetContactDetail(Guid contactId, Guid contactDetailId)
         {

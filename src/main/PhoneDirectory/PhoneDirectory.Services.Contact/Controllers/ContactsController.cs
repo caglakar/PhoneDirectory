@@ -105,5 +105,15 @@ namespace PhoneDirectory.Services.Contact.Controllers
 
             return NoContent();
         }
+
+
+        //REport servisi için
+        [HttpGet("details")]
+        public ActionResult<IEnumerable<ContactDetailServiceDto>> GetContactsDetails()
+        {
+            var contactsFromRepo = _contactRepository.GetContactDetails();
+            return Ok(_mapper.Map<IEnumerable<ContactDetailServiceDto>>(contactsFromRepo));
+        }
+
     }
 }

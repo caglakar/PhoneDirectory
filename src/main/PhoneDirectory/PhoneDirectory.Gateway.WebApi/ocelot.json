@@ -10,7 +10,7 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/contacts",
-      "UpstreamHttpMethod": [ "POST","GET"]
+      "UpstreamHttpMethod": [ "POST", "GET" ]
     },
     {
       "DownstreamPathTemplate": "/api/contacts/{id}",
@@ -47,6 +47,42 @@
       ],
       "UpstreamPathTemplate": "/gateway/contacts/{id}/detail/{contactDetailId}",
       "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/report/locations",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/report/locations",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/report/locations/contactnumber",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/report/locations/contactnumber",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/report/locations/phonenumber",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/report/locations/phonenumber",
+      "UpstreamHttpMethod": [ "GET" ]
     }
   ]
 }

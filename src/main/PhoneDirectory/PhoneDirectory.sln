@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneDirectory.Services.Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneDirectory.Gateway.WebApi", "PhoneDirectory.Gateway.WebApi\PhoneDirectory.Gateway.WebApi.csproj", "{53197F8B-8F93-43CF-AFB1-01097C36A08C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneDirectory.Services.Report", "PhoneDirectory.Services.Report\PhoneDirectory.Services.Report.csproj", "{B2E74DA6-00DE-4E34-8612-B309DEC6B64F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{53197F8B-8F93-43CF-AFB1-01097C36A08C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53197F8B-8F93-43CF-AFB1-01097C36A08C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53197F8B-8F93-43CF-AFB1-01097C36A08C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2E74DA6-00DE-4E34-8612-B309DEC6B64F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E74DA6-00DE-4E34-8612-B309DEC6B64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E74DA6-00DE-4E34-8612-B309DEC6B64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E74DA6-00DE-4E34-8612-B309DEC6B64F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

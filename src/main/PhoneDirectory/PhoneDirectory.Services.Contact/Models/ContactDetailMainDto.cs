@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace PhoneDirectory.Services.Contact.Models
 {
-    public class ContactDetailDto:ContactDetailMainDto
+    public abstract class ContactDetailMainDto
     {
-     
+        public Guid Id { get; set; }
+        public ContactDetailTypes Type { get; set; }
+        public string ContactDetailInfo { get; set; }
 
     }
 }
