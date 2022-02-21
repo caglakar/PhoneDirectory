@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneDirectory.Gateway.WebA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneDirectory.Services.Report", "PhoneDirectory.Services.Report\PhoneDirectory.Services.Report.csproj", "{B2E74DA6-00DE-4E34-8612-B309DEC6B64F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{730AF439-9BC7-46D5-BA8E-B4B73E6FBC61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneDirectory.Models", "PhoneDirectory.Models\PhoneDirectory.Models.csproj", "{80BA3BFC-7C5A-4712-AA6A-3FB6C53DD82C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneDirectory.Services.Contact.Publisher", "PhoneDirectory.Services.Contact.Publisher\PhoneDirectory.Services.Contact.Publisher.csproj", "{00471F51-1D1A-428B-AEAF-7538DCFC7989}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneDirectory.Services.Contact.Consumer", "PhoneDirectory.Services.Contact.Consumer\PhoneDirectory.Services.Contact.Consumer.csproj", "{4EAD852B-446F-4851-B224-CE43C7D99BBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +35,24 @@ Global
 		{B2E74DA6-00DE-4E34-8612-B309DEC6B64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2E74DA6-00DE-4E34-8612-B309DEC6B64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2E74DA6-00DE-4E34-8612-B309DEC6B64F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80BA3BFC-7C5A-4712-AA6A-3FB6C53DD82C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80BA3BFC-7C5A-4712-AA6A-3FB6C53DD82C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80BA3BFC-7C5A-4712-AA6A-3FB6C53DD82C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80BA3BFC-7C5A-4712-AA6A-3FB6C53DD82C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00471F51-1D1A-428B-AEAF-7538DCFC7989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00471F51-1D1A-428B-AEAF-7538DCFC7989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00471F51-1D1A-428B-AEAF-7538DCFC7989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00471F51-1D1A-428B-AEAF-7538DCFC7989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EAD852B-446F-4851-B224-CE43C7D99BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EAD852B-446F-4851-B224-CE43C7D99BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EAD852B-446F-4851-B224-CE43C7D99BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EAD852B-446F-4851-B224-CE43C7D99BBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{80BA3BFC-7C5A-4712-AA6A-3FB6C53DD82C} = {730AF439-9BC7-46D5-BA8E-B4B73E6FBC61}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE597858-0734-486A-A978-5A25DDC91131}
