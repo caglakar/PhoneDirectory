@@ -49,7 +49,7 @@ namespace PhoneDirectory.Services.Report.Controllers
                                                 }).Where(p=>
                                                             //p.IsActive == 1 &&
                                                                  p.Type==ContactDetailTypes.Location 
-                                                                && p.Location.Trim() == locationName.Trim())//Burada ToLower deyine İstanbul ve Istanbul aynı değerlendirildi. Ama Üstteki action'da ikisi farklı lokasyonlar olarak çıktı.
+                                                                && p.Location.Trim() == locationName?.Trim())//Burada ToLower deyine İstanbul ve Istanbul aynı değerlendirildi. Ama Üstteki action'da ikisi farklı lokasyonlar olarak çıktı.
                                                     .GroupBy(p=>p.ContactID)
                                                     .Count();
            
@@ -61,7 +61,7 @@ namespace PhoneDirectory.Services.Report.Controllers
         {
            
             var contactDetails = _contactServices.GetContactsDetails();
-            var locationResDet = contactDetails.Where(p => p.Type == ContactDetailTypes.Location && p.ContactDetailInfo.Trim() == locationName.Trim());
+            var locationResDet = contactDetails.Where(p => p.Type == ContactDetailTypes.Location && p.ContactDetailInfo.Trim() == locationName?.Trim());
             var phoneNum = locationResDet
                              .Join(contactDetails,
                                         contactDet1 => contactDet1.ContactId,
